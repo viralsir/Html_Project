@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Count</title>
+
+</head>
+<body>
+<h1 id="output"></h1>
+<input type="button" id="clickbtn" value="click">
+
+
+
+<script>
+  let count=0;
+  function clickcounter()
+  {
+    document.getElementById("output").innerHTML=count;
+    count=count+1;
+  }
+
+  document.getElementById("clickbtn").onclick=clickcounter;
+
+</script>
+</body>
+</html>
