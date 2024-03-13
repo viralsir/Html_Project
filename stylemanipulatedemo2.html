@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>style manipulatedemo</title>
+  <script>
+      document.addEventListener("DOMContentLoaded",()=>{
+
+        document.getElementById("colorchanger").onchange=()=>{
+          //console.log("value is selected",document.getElementById("colorchanger").value);
+           document.getElementById("output").style.color=document.getElementById("colorchanger").value;
+
+
+        }
+
+      })
+  </script>
+</head>
+<body>
+
+<h1 id="output"> Hello </h1>
+
+<select name="" id="colorchanger">
+  <option value="red">red</option>
+  <option value="blue">blue</option>
+  <option value="green">green</option>
+  <option value="yellow">yellow</option>
+</select>
+
+</body>
+</html>

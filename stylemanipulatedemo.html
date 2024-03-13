@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>style</title>
+  <script>
+    document.addEventListener("DOMContentLoaded",()=>{
+
+       //let outputcolor=document.getElementById("output").style.color;
+
+      document.getElementById("redbtn").onclick=()=>{
+
+        document.getElementById("output").style.color='red';
+
+      }
+
+      document.getElementById("greenbtn").onclick=()=>{
+        document.getElementById("output").style.color='green';
+      }
+      document.getElementById("bluebtn").onclick=()=>{
+        document.getElementById("output").style.color='blue';
+      }
+
+
+    })
+  </script>
+</head>
+<body>
+
+<h1 id="output"> Hello </h1>
+
+<input type="button"  id="redbtn"    value="red">
+<input type="button"  id="greenbtn"  value="green">
+<input type="button"  id="bluebtn"   value="blue">
+
+
+</body>
+</html>

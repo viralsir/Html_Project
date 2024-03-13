@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>todolist</title>
+
+  <script>
+      document.addEventListener("DOMContentLoaded",()=>{
+
+        document.getElementById("addtaskbtn").disabled=true;
+        document.getElementById("taskinput").onkeydown=()=>{
+
+          console.log(document.getElementById("taskinput").value.length)
+          if(document.getElementById("taskinput").value.length>1)
+          {
+            document.getElementById("addtaskbtn").disabled=false;
+          }
+          else
+          {
+            document.getElementById("addtaskbtn").disabled=true;
+          }
+
+        }
+
+        document.getElementById("addtaskbtn").onclick=()=>{
+
+          let input=document.getElementById("taskinput").value;
+
+          let ul=document.getElementById("output");
+          let li=document.createElement("li");
+          li.innerHTML=input;
+          ul.append(li);
+
+          document.getElementById("taskinput").value="";
+          document.getElementById("addtaskbtn").disabled=true;
+
+        }
+
+
+      })
+  </script>
+
+</head>
+<body>
+<h1>Task List</h1>
+<ul id="output">
+
+</ul>
+<br/>
+<input type="text" id="taskinput">
+<input type="button" value="add Task" id="addtaskbtn">
+
+</body>
+</html>
