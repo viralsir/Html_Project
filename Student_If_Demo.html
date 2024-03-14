@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Info</title>
+  <script>
+           document.addEventListener("DOMContentLoaded",()=>{
+
+              document.getElementById("addbtn").onclick=()=>{
+
+                let rollno=parseInt(document.getElementById("rollno").value);
+                let name=document.getElementById("name").value;
+                let maths=parseInt(document.getElementById("maths").value);
+                let science=parseInt(document.getElementById("science").value);
+                let english=parseInt(document.getElementById("english").value);
+
+
+                let outputstring=`<li>Roll No: ${rollno}</li>`;
+                outputstring += `<li>Name :${name}</li>`;
+                outputstring += `<li>Maths :${maths}</li>`;
+                outputstring += `<li>Science :${science}</li>`;
+                outputstring += `<li>English:${english}</li>`;
+                const passingmarks=35;
+
+                if(maths>passingmarks && science>=passingmarks && english>=passingmarks)
+                {
+                      outputstring += `<li>Status : Pass</li>`;
+                      let total=maths+science+english;
+                      let avg=total/3;
+                      outputstring += `<li>Total : ${total}</li>`;
+                      outputstring += `<li>Avg :${avg}</li>`;
+                      if(avg>=90)
+                      {
+                          outputstring +=`<li> Grade :A </li>`;
+                      }
+                      else if(avg>=70)
+                      {
+                        outputstring +=`<li>Grade :B</li>`;
+                      }
+                      else if(avg>=55)
+                      {
+                        outputstring +=`<li>Grade :C</li>`;
+                      }
+                      else
+                      {
+                        outputstring +=`<li>Grade :D</li>`
+                      }
+                }
+                else
+                {
+                  outputstring += ` <li>Status :Fail</li>`;
+                }
+
+
+               document.getElementById("output").innerHTML=outputstring;
+
+
+
+
+              }
+
+           })
+  </script>
+</head>
+<body>
+<form >
+   <table align="center" border="2">
+     <tr>
+       <th colspan="2" align="center">
+           Stuent Info
+       </th>
+     </tr>
+     <tr>
+       <th> Roll No:</th>
+       <td><input type="number" id="rollno"></td>
+     </tr>
+     <tr>
+       <th>Name :</th>
+       <td><input type="text" id="name"></td>
+     </tr>
+     <tr>
+       <th>Maths :</th>
+       <td><input type="number" id="maths"></td>
+     </tr>
+     <tr>
+       <th>Science :</th>
+       <td><input type="number" id="science"></td>
+     </tr>
+     <tr>
+       <th> English :</th>
+       <td><input type="number" id="english"></td>
+     </tr>
+     <tr>
+       <td colspan="2" align="center">
+         <input type="button" value="Save" id="addbtn">
+         <input type="reset" value="clear">
+       </td>
+     </tr>
+   </table>
+</form>
+<h1>
+     Student Details :
+</h1>
+<ul id="output">
+
+</ul>
+</body>
+</html>
