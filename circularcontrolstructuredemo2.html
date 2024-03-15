@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>loop </title>
+  <script>
+           /*
+                     loop :
+                          while
+                          dowhile
+                          for
+
+
+                          while :
+                          syntax :
+                                  intilization of variable
+                                  while (condition)
+                                  {
+                                       statement
+                                       true part;
+                                       increment or decrement of variable;
+                                  }
+
+
+
+           let i=100;
+           while(i>=1)
+           {
+              console.log(i);
+              //i=i+1;
+              //i++;
+               i -=10;
+           }
+          */
+        document.addEventListener("DOMContentLoaded",()=>{
+
+          document.getElementById("showbtn").onclick=()=>{
+
+
+            let no=parseInt(document.getElementById("no").value);
+            let output=document.getElementById("output")
+            output.innerHTML="";
+            let i=1;
+            while(i<=10)
+            {
+               output.innerHTML += ` ${no} * ${i} = ${no*i} <br/>`;
+               i=i+1;
+            }
+
+
+          }
+
+        })
+
+  </script>
+</head>
+<body>
+start  : <input type="number" id="start" /> <br/>
+end : <input type="number" id="end" /><br/>
+<input type="button" value="click" id="showbtn">
+
+<h1 id="output"> </h1>
+
+
+</body>
+</html>
