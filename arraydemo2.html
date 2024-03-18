@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> arraydemo</title>
+
+  <style>
+          #viewdiv{
+            display: none;
+          }
+          #entrydiv{
+            display: none;
+          }
+
+  </style>
+
+  <script>
+          let rollnolist=[];
+          let namelist=[];
+          let mathslist=[];
+
+          document.addEventListener("DOMContentLoaded",()=>{
+
+            document.getElementById("entrybtn").onclick=()=>{
+
+              document.getElementById("entrydiv").style.display='block';
+              document.getElementById("viewdiv").style.display='none';
+
+            }
+
+
+
+           document.getElementById("savebtn").onclick=()=>{
+
+              rollnolist.push(document.getElementById("rollno").value);
+              namelist.push(document.getElementById("name").value);
+              mathslist.push(parseInt(document.getElementById("maths").value));
+
+              alert("record has been saved ");
+              document.getElementById("rollno").value="";
+              document.getElementById("name").value="";
+              document.getElementById("maths").value="";
+
+           }
+
+           document.getElementById("viewbtn").onclick=()=>{
+
+              document.getElementById("output").innerHTML="";
+             for (let j = 0; j < rollnolist.length; j++)
+             {
+                  let tr=document.createElement("tr");
+                  let td=[];
+                  for (let i = 0; i < 3; i++) {
+                   td[i]=document.createElement("td");
+                  }
+                  td[0].innerHTML=rollnolist[j];
+                  td[1].innerHTML=namelist[j];
+                  td[2].innerHTML=mathslist[j];
+                  tr.append(td[0]);
+                  tr.append(td[1]);
+                  tr.append(td[2]);
+                  document.getElementById("output").append(tr);
+
+             }
+
+             document.getElementById("viewdiv").style.display="block";
+             document.getElementById("entrydiv").style.display="none";
+
+
+
+           }
+
+
+
+          })
+
+  </script>
+
+</head>
+<body>
+<input type="button" value="Entry" id="entrybtn">
+<input type="button" value="View" id="viewbtn"> <br/>
+
+<div id="entrydiv">
+  <form>
+       <table>
+         <tr> <th colspan="2"> StudentInfo</th></tr>
+         <tr><th>Roll No:</th><td><input type="number" id="rollno"></td></tr>
+         <tr><th>Name :</th><td><input type="text" id="name"></td></tr>
+         <tr><th>Maths :</th><td><input type="number" id="maths"></td></tr>
+         <tr> <th colspan="2"><input type="button" value="save" id="savebtn"> <input type="reset" value="clear"> </th></tr>
+       </table>
+  </form>
+
+</div>
+<div id="viewdiv">
+        <table id="output">
+          <tr><th>RolllNo</th><th>Name</th><th>Maths</th></tr>
+        </table>
+</div>
+
+</body>
+</html>

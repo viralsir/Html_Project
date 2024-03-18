@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>array demo</title>
+  <script>
+      //let nolist=[12,23,44,55];
+      let nolist=[23,"vimal",true,43434]
+      console.log(nolist);
+      console.log(nolist[0])
+      console.log(nolist[2])
+      console.log(nolist.length);
+
+      console.log("=====while =======")
+      let index=0;
+      while(index<nolist.length)
+      {
+        console.log(nolist[index])
+        index++;
+      }
+      console.log("=====for===")
+      for (let i = 0; i < nolist.length; i++) {
+        console.log(nolist[i]);
+
+      }
+    console.log("===for in ====")
+      for (const nolistKey in nolist) {
+             // console.log(nolistKey);
+             console.log(nolist[nolistKey]);
+             nolist[nolistKey]=3456;
+      }
+
+      console.log("====for of======")
+      for (let nolistElement of nolist) {
+            console.log(nolistElement);
+            nolistElement=3323
+      }
+      console.log(nolist);
+
+      nolist.push(45);
+      console.log(nolist);
+      nolist[5]=123
+      console.log(nolist)
+      //nolist[3]="amit"
+      //console.log(nolist)
+      //nolist.sort()
+      //console.log(nolist);
+
+
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
