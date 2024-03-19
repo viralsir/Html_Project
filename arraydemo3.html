@@ -15,10 +15,34 @@
   </style>
 
   <script>
-          let studentlist=[ [1,"vimal",23,33,44],[2,"Vishal",33,44,55]]
-          let rollnolist=[];
-          let namelist=[];
-          let mathslist=[];
+
+      //  student1={"rollno":1,"name":"amit","maths":34}
+      //  student2={"rollno":2,"name":"viren","maths":44}
+      //
+      //  studentarray=[{"rollno":1,"name":"amit","maths":34},
+      //                {"rollno":2,"name":"viren","maths":34},
+      //                {"rollno":4,"name":"vijay","maths":34}
+      //               ]
+      //  studentdiv={"A":[{"rollno":1,"name":"amit","maths":34},
+      //                  {"rollno":2,"name":"viren","maths":34},
+      //                   {"rollno":4,"name":"vijay","maths":34}
+      //                   ],
+      //             "B":[{"rollno":1,"name":"amit","maths":34},
+      //               {"rollno":2,"name":"viren","maths":34},
+      //               {"rollno":4,"name":"vijay","maths":34}
+      //             ]
+      //           }
+      //
+      // studentstd=[ {"A":[{},{} ] } ,"B":[] ]
+      //
+      // pvr : {"screen1":{""}}
+      //
+      //     origin
+      //
+      //
+
+
+         let studentlist=[]
 
           document.addEventListener("DOMContentLoaded",()=>{
 
@@ -33,9 +57,13 @@
 
            document.getElementById("savebtn").onclick=()=>{
 
-              rollnolist.push(document.getElementById("rollno").value);
-              namelist.push(document.getElementById("name").value);
-              mathslist.push(parseInt(document.getElementById("maths").value));
+              let student=[]
+              student.push(document.getElementById("rollno").value);
+              student.push(document.getElementById("name").value);
+              student.push(parseInt(document.getElementById("maths").value));
+
+              studentlist.push(student);
+              console.log("student list :"+studentlist)
 
               alert("record has been saved ");
               document.getElementById("rollno").value="";
@@ -47,22 +75,19 @@
            document.getElementById("viewbtn").onclick=()=>{
 
               document.getElementById("output").innerHTML="";
-             for (let j = 0; j < rollnolist.length; j++)
+
+             for (const student of studentlist)
              {
-                  let tr=document.createElement("tr");
-                  let td=[];
-                  for (let i = 0; i < 3; i++) {
-                   td[i]=document.createElement("td");
-                  }
-                  td[0].innerHTML=rollnolist[j];
-                  td[1].innerHTML=namelist[j];
-                  td[2].innerHTML=mathslist[j];
-                  tr.append(td[0]);
-                  tr.append(td[1]);
-                  tr.append(td[2]);
-                  document.getElementById("output").append(tr);
+               let tr=document.createElement("tr");
+               for (const value of student) {
+                    let td=document.createElement("td");
+                    td.innerHTML=value;
+                    tr.append(td);
+               }
+               document.getElementById("output").append(tr);
 
              }
+
 
              document.getElementById("viewdiv").style.display="block";
              document.getElementById("entrydiv").style.display="none";
